@@ -1,9 +1,16 @@
-def print_pattern(n):
-    for i in range(1, n + 1):
-        for j in range(1, i + 1):
-            print(j, end=' ')
-        print()
+def is_valid_username(username1, username2):
+    return username1 == username2
 
-# Set the number of lines for the pattern
-n = 5
-print_pattern(n)
+
+def main():
+    username1 = input("Enter the user name: ")
+    username2 = input("Reenter the user name: ")
+
+    if is_valid_username(username1, username2):
+        print("User name is Valid")
+    else:
+        print("User name is Invalid")
+
+
+if __name__ == "__main__":
+    main()

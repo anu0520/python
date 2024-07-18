@@ -1,23 +1,20 @@
-def fibonacci(n):
-    if n <= 0:
-        return "Invalid input. N should be a positive integer."
-    elif n == 1:
-        return [0]
-    elif n == 2:
-        return [0, 1]
+def check_voting_eligibility(age):
+    try:
+        age = float(age)
+        if age < 0:
+            return "Invalid input: Age cannot be negative"
+        elif age >= 18:
+            return "You are eligible to vote"
+        else:
+            years_left = 18 - int(age)
+            return f"You are allowed to vote after {years_left} years"
+    except ValueError:
+        return "Invalid input: Please enter a valid number"
 
-    fib_sequence = [0, 1]
-    while len(fib_sequence) < n:
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+def main():
+    age = input("Enter your age: ")
+    result = check_voting_eligibility(age)
+    print(result)
 
-    return fib_sequence
-
-
-# Input from the user
-n = int(input("Enter the value of N: "))
-
-# Get the Fibonacci sequence up to the Nth number
-fib_sequence = fibonacci(n)
-
-# Print the Fibonacci sequence
-print(" ".join(map(str, fib_sequence)))
+if __name__ == "__main__":
+    main()

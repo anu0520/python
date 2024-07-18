@@ -1,26 +1,27 @@
-def can_vote_in_years(age):
-    if age < 0:
-        return "Invalid input. Age cannot be negative."
-    elif age >= 18:
-        return "You are allowed to vote."
-    else:
-        return f"You are allowed to vote after {18 - age} years."
+def is_palindrome(s):
+    return s == s[::-1]
 
 def main():
-    age_input = input("Enter your age: ")
+    print("Choose an option:")
+    print("1. Check if a given string is a palindrome")
+    print("2. Check if a given number is a palindrome")
 
-    try:
-        # Try to convert the input to a float
-        age = float(age_input)
+    choice = int(input("Enter your choice (1/2): "))
 
-        # Check if the age is a whole number
-        if age.is_integer():
-            age = int(age)
-            print(can_vote_in_years(age))
+    if choice == 1:
+        string = input("Enter the string: ")
+        if is_palindrome(string):
+            print("Palindrome")
         else:
-            print("Invalid input. Age must be a whole number.")
-    except ValueError:
-        print("Invalid input. Please enter a numeric value.")
+            print("Not a Palindrome")
+    elif choice == 2:
+        number = input("Enter the number: ")
+        if is_palindrome(number):
+            print("Palindrome")
+        else:
+            print("Not a Palindrome")
+    else:
+        print("Invalid choice")
 
-# Run the main function
-main()
+if __name__ == "__main__":
+    main()

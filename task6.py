@@ -1,17 +1,33 @@
-def find_maximum_of_three():
+def reverse_number(number):
     try:
-        # Prompting the user to enter three numbers
-        num1 = float(input("Enter the first number: "))
-        num2 = float(input("Enter the second number: "))
-        num3 = float(input("Enter the third number: "))
+        num = int(number)
+        if num < 0:
+            is_negative = True
+            num = -num
+        else:
+            is_negative = False
 
-        # Finding the maximum of the three numbers
-        maximum = max(num1, num2, num3)
+        reversed_num = 0
+        while num > 0:
+            digit = num % 10
+            reversed_num = reversed_num * 10 + digit
+            num = num // 10
 
-        # Printing the result
-        print(f"The maximum of the three numbers is: {maximum}")
+        if is_negative:
+            reversed_num = -reversed_num
+
+        return reversed_num
+
     except ValueError:
-        print("Invalid input. Please enter numeric values.")
+        return "Invalid input: Not a valid integer"
 
-# Example usage
-find_maximum_of_three()
+def main():
+    number = input("Enter the number: ")
+    result = reverse_number(number)
+    if isinstance(result, int):
+        print(f"Reverse Number: {result}")
+    else:
+        print(result)
+
+if __name__ == "__main__":
+    main()

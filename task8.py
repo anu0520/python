@@ -1,40 +1,23 @@
-def add(x, y):
-    return x + y
+def calculate_total_balance(denominations, counts):
+    total_balance = 0
+    for denomination, count in zip(denominations, counts):
+        total_balance += denomination * count
+    return total_balance
 
-def subtract(x, y):
-    return x - y
 
-def multiply(x, y):
-    return x * y
+def main():
+    denominations = []
+    counts = []
 
-def divide(x, y):
-    if y == 0:
-        return "Error! Division by zero."
-    return x / y
+    for i in range(1, 5):
+        denomination = int(input(f"Enter the {i}st Denomination: "))
+        count = int(input(f"Enter the {i}st Denomination number of notes: "))
+        denominations.append(denomination)
+        counts.append(count)
 
-def calculator():
-    print("Select operation:")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
+    total_balance = calculate_total_balance(denominations, counts)
+    print(f"Total Available Balance in ATM: {total_balance}")
 
-    choice = input("Enter choice(1/2/3/4): ")
 
-    if choice in ['1', '2', '3', '4']:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
-
-        if choice == '1':
-            print(f"The result of {num1} + {num2} is: {add(num1, num2)}")
-        elif choice == '2':
-            print(f"The result of {num1} - {num2} is: {subtract(num1, num2)}")
-        elif choice == '3':
-            print(f"The result of {num1} * {num2} is: {multiply(num1, num2)}")
-        elif choice == '4':
-            print(f"The result of {num1} / {num2} is: {divide(num1, num2)}")
-    else:
-        print("Invalid input")
-
-# Run the calculator
-calculator()
+if __name__ == "__main__":
+    main()
